@@ -6,7 +6,7 @@ const {
   GraphQLList
 } = require('graphql');
 
-const { projects, clients } = require('../sampleData');
+const { projects, clients } = require('../assets/sampleData');
 
 const projectType = new GraphQLObjectType({
 	name: "Project",
