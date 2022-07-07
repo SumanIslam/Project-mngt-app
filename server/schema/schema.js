@@ -88,6 +88,15 @@ const mutation = new GraphQLObjectType({
 
         return client.save();
       }
+    },
+    deleteClient: {
+      type: clientType,
+      args: {
+        id: {type: GraphQLNonNull(GraphQLID)}
+      },
+      resolve(parentValue, args) {
+        return clientModel.findByIdAndDelete(args.id);
+      }
     }
   }
 })
