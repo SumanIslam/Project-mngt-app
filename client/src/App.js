@@ -1,8 +1,10 @@
+import Header from "./components/navbar.component";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World!</h1>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
