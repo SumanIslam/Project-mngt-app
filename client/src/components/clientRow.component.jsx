@@ -1,15 +1,22 @@
 import { useMutation } from '@apollo/client'
 import { FaTrash } from 'react-icons/fa';
 import { DELETE_CLIENT } from '../mutation/clientMutation';
-import Spinner from './spinner.component';
+import { GET_CLIENTS } from '../queries/clientQueries';
 
 function ClientRow({ client }) {
   const [deleteClient] = useMutation(DELETE_CLIENT, {
-    variables: { id: client.id }
+    variables: { id: client.id },
+    // refetchQueries: [{ query: GET_CLIENTS }]
+    update(cache, { data: { deleteClient } }) {
+      const { clients } = cache.readQuery({ query: GET_CLIENTS });
+      cache.writeQuery({
+        query: GET_CLIENTS,
+        data: {
+          clients: clients.filter(client => client.id !== deleteClient.id)
+        }
+      })
+    }
   });
-
-  // if (loading) return<Spinner />;
-  // if (error) return `Error! ${error.message}`;
 
   return(
     <tr>
