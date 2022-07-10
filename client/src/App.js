@@ -1,16 +1,15 @@
-import AddClientForm from "./components/addClientForm.component";
-import Clients from "./components/clients.component";
-import Projects from "./components/projects.component";
+import { Routes, Route }  from 'react-router-dom'
 import Header from "./components/navbar.component";
+import Home from "./pages/home.component";
 
 function App() {
   return (
 		<>
 			<Header />
 			<div className="container">
-				<AddClientForm />
-        <Projects />
-				<Clients />
+				<Routes>
+					<Route path='/' element={<Home />} />
+				</Routes>
 			</div>
 		</>
 	);
