@@ -10,8 +10,6 @@ function Clients() {
   if(loading) return <Spinner />;
   if(error) return <p>'Something went wrong'</p>;
 
-  console.log(data);
-
   return(
     <table className='table table-hover mt-3'>
       <thead>
