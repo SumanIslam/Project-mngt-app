@@ -23,7 +23,7 @@ function Project() {
       </div>
 
       <div>
-        <Link to='/' className="btn btn-light btn-sm w-25 d-inline mx-auto">Back</Link>
+        <Link to='/' className="btn btn-danger btn-sm w-25 d-inline mx-auto">Back</Link>
       </div>
     </div>
   )
