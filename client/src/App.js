@@ -2,7 +2,7 @@ import { Routes, Route }  from 'react-router-dom'
 import Header from "./components/navbar.component";
 import Home from "./pages/home.component";
 import NotFound from './pages/not-found.component';
-import Project from './pages/page.component';
+import Project from './pages/project.component';
 
 function App() {
   return (
