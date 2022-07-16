@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import Spinner from "../components/spinner.component";
 import ClientInfo from "../components/client-info.component";
+import DeleteProject from "../components/delete-project.component";
 import { GET_PROJECT } from "../queries/projectQueries";
 
 function Project() {
@@ -14,7 +15,12 @@ function Project() {
   if(error)  return <p>Something Went Wrong</p>
 
   return(
-    <div className="mx-auto w-75 card p-5 d-flex flex-row justify-content-between">
+    <div className="mx-auto w-75 card p-5">
+      {/* back link */}
+      <div style={{textAlign: "right"}}>
+        <Link to='/' className="btn btn-danger btn-sm w-25 d-inline mx-auto">Back</Link>
+      </div>
+      {/* project information */}
       <div>
         <h1>{data.project.name}</h1>
         <p>{data.project.description}</p>
@@ -22,11 +28,11 @@ function Project() {
         <h5 className="mt-3">Project Status</h5>
         <p className="lead">{data.project.status}</p>
 
+        {/* client information */}
         <ClientInfo client={data.project.client} />
-      </div>
 
-      <div>
-        <Link to='/' className="btn btn-danger btn-sm w-25 d-inline mx-auto">Back</Link>
+        {/* delete project */}
+        <DeleteProject id={data.project.id} />
       </div>
     </div>
   )
