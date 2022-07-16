@@ -21,6 +21,10 @@ function EditProjectForm({ project }) {
     }
 
     updateProject(project.id, name, description, status);
+
+    setTimeout(() => {
+      window.scrollTo(0,0);
+    }, 600);
   }
 
   return(
