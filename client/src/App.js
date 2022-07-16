@@ -11,7 +11,7 @@ function App() {
 			<div className="container">
 				<Routes>
 					<Route path='/' element={<Home />} />
-					<Route path='/projects/:projectId' element={<Project />} />
+					<Route path='/projects/:projectID' element={<Project />} />
 					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</div>

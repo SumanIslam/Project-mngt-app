@@ -5,9 +5,9 @@ import ClientInfo from "../components/client-info.component";
 import { GET_PROJECT } from "../queries/projectQueries";
 
 function Project() {
-  const { projectId } = useParams();
+  const { projectID } = useParams();
   const { loading, error, data } = useQuery(GET_PROJECT, {
-    variables: {id: projectId}
+    variables: {id: projectID}
   });
 
   if(loading) return <Spinner />;

@@ -8,11 +8,11 @@ import { GET_CLIENTS } from '../queries/clientQueries';
 function AddProjectFormModal() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [clientId, setClientId] = useState('');
+  const [clientID, setClientID] = useState('');
   const [status, setStatus] = useState('new');
 
   const [addProject] = useMutation(ADD_PROJECT, {
-    variables: { name, description, status, clientId },
+    variables: { name, description, status, clientID },
     update(cache, { data: { addProject }}) {
       const { projects } = cache.readQuery({ query: GET_PROJECTS });
       cache.writeQuery({
@@ -31,12 +31,12 @@ function AddProjectFormModal() {
       return alert('please fill in all fields');
     }
 
-    addProject(name, description, status, clientId);
+    addProject(name, description, status, clientID);
 
     setName('');
     setDescription('');
     setStatus('new');
-    setClientId('');
+    setClientID('');
   }
 
   if(loading)  return null;
@@ -85,7 +85,7 @@ function AddProjectFormModal() {
                     onChange={ (e) => setName(e.target.value)}
                   />
                 </div>
-                {/* for email field */}
+                {/* for description field */}
                 <div className="mb-3">
                   <label className="form-label">Description</label>
                   <textarea
@@ -97,6 +97,7 @@ function AddProjectFormModal() {
                   >
                   </textarea>
                 </div>
+                {/* for status field */}
                 <div className="mb-3">
                   <label className="form-label">Status</label>
                   <select
@@ -110,13 +111,14 @@ function AddProjectFormModal() {
                     <option value="completed">Completed</option>
                   </select>
                 </div>
+                {/* for clientId field */}
                 <div className="mb-3">
                   <label className='form-label'>Client</label>
                   <select
                     id="clientId"
                     className="form-select"
-                    value={clientId}
-                    onChange={ (e) => setClientId(e.target.value) }
+                    value={clientID}
+                    onChange={ (e) => setClientID(e.target.value) }
                   >
                     <option value="">Select Client</option>
                     {
