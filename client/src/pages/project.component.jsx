@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Spinner from "../components/spinner.component";
 import ClientInfo from "../components/client-info.component";
 import DeleteProject from "../components/delete-project.component";
+import EditProjectForm from "../components/edit-project-form.component";
 import { GET_PROJECT } from "../queries/projectQueries";
 
 function Project() {
@@ -30,6 +31,9 @@ function Project() {
 
         {/* client information */}
         <ClientInfo client={data.project.client} />
+
+        {/* Edit project */}
+        <EditProjectForm project={data.project} />
 
         {/* delete project */}
         <DeleteProject id={data.project.id} />
