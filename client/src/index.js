@@ -31,9 +31,9 @@ const cache = new InMemoryCache({
 })
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5001/graphql',
-  cache
-})
+	uri: "https://projectmngtapp.herokuapp.com/graphql",
+	cache,
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
