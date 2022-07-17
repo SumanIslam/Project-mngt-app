@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const { graphqlHTTP } = require('express-graphql');
 
@@ -30,7 +31,7 @@ if (process.env.NODE_ENV === "production") {
 
 function startServer() {
   mongoConnect();
-
+  console.log(path.join(__dirname, "..", "client", "build", "index.html"));
   app.listen(PORT, () => {
 		console.log(`server is running on port ${PORT}...`);
 	});
